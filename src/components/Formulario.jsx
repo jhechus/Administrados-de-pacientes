@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
+import Error from './Error';
 
-function Formulario() {
+function Formulario({ Pacientes, setPacientes }) {
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
   const [email, setEmail] = useState('');
@@ -23,6 +24,33 @@ function Formulario() {
 
     setError(false)
 
+    const generarId = () => {
+      const random = Math.random().toString(36).substring(2);
+      const fecha = Date.now().toString(36)
+
+      return random + fecha
+    }
+
+    //Objeto de paciente
+    const objetoPaciente = {
+      nombre,
+      propietario,
+      email,
+      fecha,
+      sintomas,
+      id: generarId()
+    }
+
+    //console.log(objetoPaciente);
+    setPacientes([...Pacientes, objetoPaciente]);
+
+    //Reiniciar el formulario
+    setNombre('')
+    setPropietario('')
+    setEmail('')
+    setFecha('')
+    setSintomas('')
+
   }
 
   return (
@@ -37,11 +65,7 @@ function Formulario() {
 
 {/* formulario */}
       <form action="" onSubmit={hanleSubmit} className=" bg-white shadow-md rounded-lg py-10 px-5">
-        {error && (
-          <div className=' bg-red-800 text-center text-white p-3 uppercase font-bold mb-3 rounded-lg'>
-            <p>Hay un campo vacio</p>
-          </div>
-        )}
+        {error && (<Error><p>Favor de llenar todos los espacios</p></Error>)}
 
         <div className=" mb-5">
             <label htmlFor="mascota" className=" block text-gray-700 font-bold uppercase">

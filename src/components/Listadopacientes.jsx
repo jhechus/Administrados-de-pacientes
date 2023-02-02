@@ -1,6 +1,9 @@
 import Paciente from "./Paciente"
 
-function Listadopacientes() {
+function Listadopacientes({Pacientes}) {
+
+
+
   return (
     <div className=" md:w-1/2 lg:w-3/5 ">
       <h2 className=" font-black text-3xl text-center">
@@ -13,10 +16,14 @@ function Listadopacientes() {
         </span>
       </p>
 
-      <Paciente />
-      <Paciente />
-      <Paciente />
-      <Paciente />
+      { Pacientes.map( (paciente) => (
+          <Paciente
+            key = {paciente.id}
+            paciente = {paciente}
+          />
+        ))}
+
+      
  
     </div>
   )
