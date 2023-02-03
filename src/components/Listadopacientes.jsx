@@ -1,6 +1,6 @@
 import Paciente from "./Paciente"
 
-function Listadopacientes({Pacientes}) {
+function Listadopacientes({Pacientes, setPaciente}) {
 
 
   return (
@@ -22,6 +22,7 @@ function Listadopacientes({Pacientes}) {
             <Paciente
               key = {paciente.id}
               paciente = {paciente}
+              setPaciente={setPaciente}
             />
           ))}
         </>

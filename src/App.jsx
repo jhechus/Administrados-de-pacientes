@@ -7,6 +7,7 @@ import Listadopacientes from "./components/Listadopacientes"
 function App() {
 
   const [Pacientes, setPacientes] = useState([]);
+  const [Paciente, setPaciente] = useState({});
 
   return (
     <div className="container mx-auto mt-20">
@@ -20,6 +21,7 @@ function App() {
         />
         <Listadopacientes 
           Pacientes = {Pacientes}
+          setPaciente = {setPaciente}
         />
       </div>
 

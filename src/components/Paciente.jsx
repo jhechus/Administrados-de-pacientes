@@ -1,5 +1,5 @@
 
-function Paciente({paciente}) {
+function Paciente({paciente, setPaciente}) {
 
     const { nombre, propietario, email, fecha, sintomas } = paciente
 
@@ -37,7 +37,8 @@ function Paciente({paciente}) {
 
         <div className=" flex justify-between mt-5">
             <button type="button"
-                    className=" py-2 px-10 bg-indigo-600 text-white hover:bg-black ease-in duration-500 font-bold uppercase rounded-lg">
+                    className=" py-2 px-10 bg-indigo-600 text-white hover:bg-black ease-in duration-500 font-bold uppercase rounded-lg"
+                    onClick={() => setPaciente(paciente)}>
                 Editar
             </button>
 
