@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import Error from './Error';
 
-function Formulario({ Pacientes, setPacientes }) {
+function Formulario({ Pacientes, setPacientes, Paciente }) {
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
   const [email, setEmail] = useState('');
@@ -9,6 +9,13 @@ function Formulario({ Pacientes, setPacientes }) {
   const [sintomas, setSintomas] = useState('');
 
   const [error, setError] = useState (false)
+
+  useEffect(() => {
+    
+  }, [Paciente])
+
+
+  
 
   const hanleSubmit = (e) => {
     e.preventDefault();
