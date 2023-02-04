@@ -19,6 +19,7 @@ function App() {
           Pacientes = {Pacientes}
           setPacientes = {setPacientes}
           Paciente = {Paciente}
+          setPaciente = {setPaciente}
         />
         <Listadopacientes 
           Pacientes = {Pacientes}
